@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using System.Windows;
 using ReactiveUI;
 using Splat;
@@ -19,6 +13,9 @@ namespace RxUiSplunk
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            // Ensure Splat does not think it is in design mode or in a unit test runner (causing it to run slower)
+            Splat.ModeDetector.OverrideModeDetector(ProductionModeDetector.Instance);
 
             DoSplatRegistrations();
 
