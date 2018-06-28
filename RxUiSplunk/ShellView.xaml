@@ -18,6 +18,7 @@
             <Button x:Name="HomeScreen">Home</Button>
             <Button x:Name="TabsOnOneScreen">Tabs On One Screen</Button>
             <Button x:Name="VariedPetsScreen">Varied Pets Screen</Button>
+            <Button x:Name="ViewsWithinViewsScreen">Views Within Views Screen</Button>
         </StackPanel>
 
         <reactiveUi:ViewModelViewHost x:Name="shellHost" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">

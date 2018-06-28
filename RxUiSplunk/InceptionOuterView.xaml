@@ -1,0 +1,18 @@
+﻿<local:InceptionOuterViewBase x:Class="RxUiSplunk.InceptionOuterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RxUiSplunk"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="Cyan">
+    <StackPanel>
+        <TextBlock>This is the outer view model. Yes, it is a hideous color, isn't it?</TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="0 0 10 0">Your custom message from the inner view is:</TextBlock>
+            <TextBlock x:Name="Message">Message goes here during runtime</TextBlock>
+        </StackPanel>
+        <TextBlock>Put the inner view model here</TextBlock>
+    </StackPanel>
+</local:InceptionOuterViewBase>

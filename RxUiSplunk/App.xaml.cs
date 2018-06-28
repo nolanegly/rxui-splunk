@@ -36,6 +36,7 @@ namespace RxUiSplunk
             loc.Register(() => new ShellViewModel(), typeof(ShellViewModel));
             loc.Register(() => new TabsOnOneScreenViewModel(), typeof(TabsOnOneScreenViewModel));
             loc.Register(() => new VariedPetsViewModel(), typeof(VariedPetsViewModel));
+            loc.Register(() => new InceptionOuterViewModel(), typeof(InceptionOuterViewModel));
         }
     }
 }

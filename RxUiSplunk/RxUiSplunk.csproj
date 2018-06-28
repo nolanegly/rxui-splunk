@@ -90,7 +90,11 @@
     <Compile Include="CatView.xaml.cs">
       <DependentUpon>CatView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InceptionOuterViewModel.cs" />
     <Compile Include="ProductionModeDetector.cs" />
+    <Compile Include="InceptionOuterView.xaml.cs">
+      <DependentUpon>InceptionOuterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VariedPetsScreenView.xaml.cs">
       <DependentUpon>VariedPetsScreenView.xaml</DependentUpon>
     </Compile>
@@ -123,6 +127,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="InceptionOuterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VariedPetsScreenView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
