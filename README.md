@@ -9,7 +9,7 @@ Hoping to get examples of the following:
   - accomplished by varying pets screen (see commented code in the view for how to get a string instead of a fully rendered view)
 - [X] List of varying classes and rendered entries
   - accomplished by varying pets screen
-- [X] A view embedded in a view
+- [ ] A view embedded in a view
   - partially accomplished (still want to add communication from inner VM to outer VM)
 - [ ] Pop open a window
 - [ ] Display a modal
