@@ -13,7 +13,7 @@ namespace RxUiSplunk
 
         public TabsOnOneScreenViewModel()
         {
-            Greeting = "Hi there, more to come!";
+            Greeting = "Hi there, more to come at a later time!";
         }
     }
 }

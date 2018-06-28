@@ -19,7 +19,7 @@
         <Line
             Margin="4"
             Stretch="Fill"
-            Stroke="DarkOrange"
+            Stroke="DodgerBlue"
             X1="0" X2="1" 
         />
     </StackPanel>

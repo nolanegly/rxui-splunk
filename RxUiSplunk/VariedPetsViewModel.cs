@@ -5,7 +5,7 @@ namespace RxUiSplunk
 {
     public class VariedPetsViewModel : ReactiveObject
     {
-        public IList<PetViewModel> Pets { get; } // Not sure if this should be a reactive list of some type?
+        public IList<PetViewModel> Pets { get; } // Not sure if this should be a reactive list of some type? Works as is, since the contents are read only.
 
         private PetViewModel _selectedPet;
         public PetViewModel SelectedPet

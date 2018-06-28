@@ -14,7 +14,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- This will reduce the display down to a property on the item -->
+        <!-- This will reduce the listbox items to a string, associated with a property on the item.
+        It'd be a suitable way for a simpler master-detail scenario.  -->
         <!--<ListBox
             x:Name="PetsListBox"
             DisplayMemberPath="Name"/>-->
