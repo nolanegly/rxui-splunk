@@ -9,14 +9,29 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox
+        <!-- This will reduce the display down to a property on the item -->
+        <!--<ListBox
             x:Name="PetsListBox"
-            DisplayMemberPath="Name"/>
+            DisplayMemberPath="Name"/>-->
+
+
+        <!-- This will render a variety of different view models in a listbox -->
+        <ListBox x:Name="PetsListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <reactiveUi:ViewModelViewHost
+                        ViewModel="{Binding}"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
         <GridSplitter
             Grid.Column="1"
             HorizontalAlignment="Center"
