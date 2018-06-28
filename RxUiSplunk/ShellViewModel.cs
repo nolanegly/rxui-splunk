@@ -42,17 +42,20 @@ namespace RxUiSplunk
 
         private void NavigateToTabsOnOneScreen()
         {
-            CurrentViewModel = Locator.Current.GetService<TabsOnOneScreenViewModel>();
+            //CurrentViewModel = Locator.Current.GetService<TabsOnOneScreenViewModel>();
+            CurrentViewModel = new TabsOnOneScreenViewModel();
         }
 
         private void NavigateToVariedPetsScreen()
         {
-            CurrentViewModel = Locator.Current.GetService<VariedPetsViewModel>();
+            //CurrentViewModel = Locator.Current.GetService<VariedPetsViewModel>();
+            CurrentViewModel = new VariedPetsViewModel();
         }
 
         private void NavigateToViewsWithinViewsScreen()
         {
-            CurrentViewModel = Locator.Current.GetService<InceptionOuterViewModel>();
+            //CurrentViewModel = Locator.Current.GetService<InceptionOuterViewModel>();
+            CurrentViewModel = new InceptionOuterViewModel(new InceptionInnerViewModel());
         }
     }
 }
