@@ -85,10 +85,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ProductionModeDetector.cs" />
+    <Compile Include="TabsOnOneScreenView.xaml.cs">
+      <DependentUpon>TabsOnOneScreenView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShellViewModel.cs" />
+    <Compile Include="TabsOnOneScreenViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +105,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TabsOnOneScreenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

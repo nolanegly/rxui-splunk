@@ -17,7 +17,11 @@ namespace RxUiSplunk
                     disposables =>
                     {
                         this
-                            .Bind(this.ViewModel, x => x.Greeting, x => x.Message.Text)
+                            .Bind(ViewModel, vm => vm.Greeting, v => v.Message.Text)
+                            .DisposeWith(disposables);
+
+                        this
+                            .BindCommand(ViewModel, vm => vm.NavigateToTabsOnOneScreenCommand, v => v.TabsOnOneScreen)
                             .DisposeWith(disposables);
                     });
         }
