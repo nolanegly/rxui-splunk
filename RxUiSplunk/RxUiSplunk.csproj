@@ -90,6 +90,10 @@
     <Compile Include="CatView.xaml.cs">
       <DependentUpon>CatView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InceptionInnerViewModel.cs" />
+    <Compile Include="InceptionInnerView.xaml.cs">
+      <DependentUpon>InceptionInnerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InceptionOuterViewModel.cs" />
     <Compile Include="ProductionModeDetector.cs" />
     <Compile Include="InceptionOuterView.xaml.cs">
@@ -114,6 +118,10 @@
     <Page Include="CatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InceptionInnerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

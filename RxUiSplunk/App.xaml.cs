@@ -33,10 +33,13 @@ namespace RxUiSplunk
             // only registers views for use with viewmodels, viewmodels have to be registered separately
             loc.RegisterViewsForViewModels(Assembly.GetExecutingAssembly()); 
 
+            // Really not sure about using Splat for VM resolution. Might be better only using Splat for the view resolution and a real container for VMs, if possible.
             loc.Register(() => new ShellViewModel(), typeof(ShellViewModel));
             loc.Register(() => new TabsOnOneScreenViewModel(), typeof(TabsOnOneScreenViewModel));
             loc.Register(() => new VariedPetsViewModel(), typeof(VariedPetsViewModel));
-            loc.Register(() => new InceptionOuterViewModel(), typeof(InceptionOuterViewModel));
+
+            loc.Register(() => new InceptionInnerViewModel(), typeof(InceptionInnerViewModel));
+            loc.Register(() => new InceptionOuterViewModel(Locator.Current.GetService<InceptionInnerViewModel>()), typeof(InceptionOuterViewModel));
         }
     }
 }
