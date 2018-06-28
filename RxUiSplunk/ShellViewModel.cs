@@ -13,16 +13,31 @@ namespace RxUiSplunk
             set => this.RaiseAndSetIfChanged(ref _greeting, value);
         }
 
+        private ReactiveObject _currentViewModel;
+
+        public ReactiveObject CurrentViewModel
+        {
+            get => _currentViewModel;
+            set => this.RaiseAndSetIfChanged(ref _currentViewModel, value);
+        }
+
+        public ReactiveCommand<Unit, Unit> NavigateHomeCommand { get; }
         public ReactiveCommand<Unit, Unit> NavigateToTabsOnOneScreenCommand { get; }
 
         public ShellViewModel()
         {
+            NavigateHomeCommand = ReactiveCommand.Create(NavigateToHomeScreen);
             NavigateToTabsOnOneScreenCommand = ReactiveCommand.Create(NavigateToTabsOnOneScreen);
+        }
+
+        private void NavigateToHomeScreen()
+        {
+            CurrentViewModel = null;
         }
 
         private void NavigateToTabsOnOneScreen()
         {
-            MessageBox.Show("Do the navigation here!");
+            CurrentViewModel = new TabsOnOneScreenViewModel();
         }
     }
 }

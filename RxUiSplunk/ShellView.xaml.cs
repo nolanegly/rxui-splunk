@@ -16,8 +16,17 @@ namespace RxUiSplunk
                 .WhenActivated(
                     disposables =>
                     {
+                        // This wires the shellHost control to the current view model property.
+                        // If views were registered correctly in Splat, the view will be hooked up automagically.
+                        this.Bind(ViewModel, vm => vm.CurrentViewModel, v => v.shellHost.ViewModel)
+                            .DisposeWith(disposables);
+
                         this
                             .Bind(ViewModel, vm => vm.Greeting, v => v.Message.Text)
+                            .DisposeWith(disposables);
+
+                        this
+                            .BindCommand(ViewModel, vm => vm.NavigateHomeCommand, v => v.HomeScreen)
                             .DisposeWith(disposables);
 
                         this
