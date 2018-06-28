@@ -84,7 +84,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DogView.xaml.cs">
+      <DependentUpon>DogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CatView.xaml.cs">
+      <DependentUpon>CatView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProductionModeDetector.cs" />
+    <Compile Include="VariedPetsScreenView.xaml.cs">
+      <DependentUpon>VariedPetsScreenView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TabsOnOneScreenView.xaml.cs">
       <DependentUpon>TabsOnOneScreenView.xaml</DependentUpon>
     </Compile>
@@ -93,6 +102,15 @@
     </Compile>
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="TabsOnOneScreenViewModel.cs" />
+    <Compile Include="VariedPetsViewModel.cs" />
+    <Page Include="DogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VariedPetsScreenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TabsOnOneScreenView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

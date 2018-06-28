@@ -34,7 +34,8 @@ namespace RxUiSplunk
             loc.RegisterViewsForViewModels(Assembly.GetExecutingAssembly()); 
 
             loc.Register(() => new ShellViewModel(), typeof(ShellViewModel));
-            //loc.Register(() => new TabsOnOneScreenViewModel(), typeof(TabsOnOneScreenViewModel));
+            loc.Register(() => new TabsOnOneScreenViewModel(), typeof(TabsOnOneScreenViewModel));
+            loc.Register(() => new VariedPetsViewModel(), typeof(VariedPetsViewModel));
         }
     }
 }

@@ -25,14 +25,23 @@ namespace RxUiSplunk
                             .Bind(ViewModel, vm => vm.Greeting, v => v.Message.Text)
                             .DisposeWith(disposables);
 
-                        this
-                            .BindCommand(ViewModel, vm => vm.NavigateHomeCommand, v => v.HomeScreen)
-                            .DisposeWith(disposables);
-
-                        this
-                            .BindCommand(ViewModel, vm => vm.NavigateToTabsOnOneScreenCommand, v => v.TabsOnOneScreen)
-                            .DisposeWith(disposables);
+                        WireUpDemoButtons(disposables);
                     });
+        }
+
+        private void WireUpDemoButtons(CompositeDisposable disposables)
+        {
+            this
+                .BindCommand(ViewModel, vm => vm.NavigateHomeCommand, v => v.HomeScreen)
+                .DisposeWith(disposables);
+
+            this
+                .BindCommand(ViewModel, vm => vm.NavigateToTabsOnOneScreenCommand, v => v.TabsOnOneScreen)
+                .DisposeWith(disposables);
+
+            this
+                .BindCommand(ViewModel, vm => vm.NavigateToVariedPetsScreenCommand, v => v.VariedPetsScreen)
+                .DisposeWith(disposables);
         }
     }
 }

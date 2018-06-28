@@ -17,6 +17,7 @@
             <TextBlock x:Name="Message">Message goes here during runtime</TextBlock>
             <Button x:Name="HomeScreen">Home</Button>
             <Button x:Name="TabsOnOneScreen">Tabs On One Screen</Button>
+            <Button x:Name="VariedPetsScreen">Varied Pets Screen</Button>
         </StackPanel>
 
         <reactiveUi:ViewModelViewHost x:Name="shellHost" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">

@@ -1,6 +1,7 @@
 ﻿using System.Reactive;
 using System.Windows;
 using ReactiveUI;
+using Splat;
 
 namespace RxUiSplunk
 {
@@ -23,11 +24,13 @@ namespace RxUiSplunk
 
         public ReactiveCommand<Unit, Unit> NavigateHomeCommand { get; }
         public ReactiveCommand<Unit, Unit> NavigateToTabsOnOneScreenCommand { get; }
+        public ReactiveCommand<Unit, Unit> NavigateToVariedPetsScreenCommand { get; }
 
         public ShellViewModel()
         {
             NavigateHomeCommand = ReactiveCommand.Create(NavigateToHomeScreen);
             NavigateToTabsOnOneScreenCommand = ReactiveCommand.Create(NavigateToTabsOnOneScreen);
+            NavigateToVariedPetsScreenCommand = ReactiveCommand.Create(NavigateToVariedPetsScreen);
         }
 
         private void NavigateToHomeScreen()
@@ -37,7 +40,12 @@ namespace RxUiSplunk
 
         private void NavigateToTabsOnOneScreen()
         {
-            CurrentViewModel = new TabsOnOneScreenViewModel();
+            CurrentViewModel = Locator.Current.GetService<TabsOnOneScreenViewModel>();
+        }
+
+        private void NavigateToVariedPetsScreen()
+        {
+            CurrentViewModel = Locator.Current.GetService<VariedPetsViewModel>();
         }
     }
 }
