@@ -6,9 +6,24 @@
              xmlns:local="clr-namespace:RxUiSplunk"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <TextBox x:Name="Tla" Width="100" Margin="0 0 10 0" Text="{Binding Tla}"/>
-            <Button x:Name="Save" Margin="0 0 10 0">Save</Button>
-        <TextBlock x:Name="IsValidState">IsValidState</TextBlock>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Tla" Width="100" Height="40" Margin="0 0 10 0" Tag="{Binding}" Grid.Column="0">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <!-- Placeholder for the TextBox itself -->
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors).Count}" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Button x:Name="Save" Grid.Column="1">Save</Button>
+        <TextBlock x:Name="IsValidState" Grid.Column="2">IsValidState</TextBlock>
+    </Grid>
 </local:ValidationViewBase>

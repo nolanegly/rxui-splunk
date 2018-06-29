@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using ReactiveUI;
 
 using System;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Windows.Data;
 
 // This namespace is critical, to get the right override of Subscribe on ViewModel.TlaIsValid
@@ -28,23 +30,20 @@ namespace RxUiSplunk
                             .DisposeWith(disposables);
 
                         this
-                            .Bind(ViewModel, vm => vm.TlaIsValid, v => v.IsValidState.Text)
+                            .WhenAnyValue(x => x.ViewModel.TlaIsValid)
+                            .Subscribe(isValid => SetValidation(Tla, isValid))
                             .DisposeWith(disposables);
 
-                        // this fails with System.InvalidOperationException: ''HasError' property was registered as read-only and cannot be modified without an authorization key.'
-                        //this
-                        //    .WhenAnyValue(x => x.ViewModel.TlaIsValid)
-                        //    .Subscribe((x) => Tla.SetValue(Validation.HasErrorProperty, x));
 
                         this
-                            .WhenAnyValue(x => x.ViewModel.TlaIsValid)
-                            .Subscribe(isValid => SetValidation(Tla, isValid));
+                            .Bind(ViewModel, vm => vm.TlaIsValid, v => v.IsValidState.Text)
+                            .DisposeWith(disposables);
                     });
         }
 
         private void SetValidation(TextBox txtBox, bool isValid)
         {
-            var bindingExpression = txtBox.GetBindingExpression(TextBox.TextProperty);
+            var bindingExpression = txtBox.GetBindingExpression(TextBox.TagProperty);
 
             if (bindingExpression == null)
             {
@@ -57,8 +56,23 @@ namespace RxUiSplunk
                 return;
             }
 
-            var validationError = new ValidationError(new ExceptionValidationRule(), bindingExpression);
+            var validationError = new ValidationError(new SplunkValidationRule("barf"), bindingExpression);
             Validation.MarkInvalid(bindingExpression, validationError);
+        }
+    }
+
+    public class SplunkValidationRule : ValidationRule
+    {
+        public string ErrorMessage { get; }
+
+        public SplunkValidationRule(string errorMessage)
+        {
+            ErrorMessage = errorMessage ?? "It's no good";
+        }
+
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            return new ValidationResult(false, ErrorMessage);
         }
     }
 }
