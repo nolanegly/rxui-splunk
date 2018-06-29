@@ -1,4 +1,5 @@
 ﻿using System.Reactive.Disposables;
+using System.Windows.Controls;
 using ReactiveUI;
 
 namespace RxUiSplunk
@@ -17,7 +18,11 @@ namespace RxUiSplunk
                     disposables =>
                     {
                         this
-                            .Bind(ViewModel, vm => vm.Tla, v => v.Tla.Text)
+                            .Bind(ViewModel, vm => vm.Tla, v => v.Tla.Text)                            
+                            .DisposeWith(disposables);
+
+                        this
+                            .Bind(ViewModel, vm => vm.TlaIsValid, v => v.IsValidState.Text)
                             .DisposeWith(disposables);
                     });
         }
