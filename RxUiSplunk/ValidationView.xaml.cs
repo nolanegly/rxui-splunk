@@ -2,9 +2,11 @@
 using System.Windows.Controls;
 using ReactiveUI;
 using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
+using System;  
 
-using System; // This namespace is critical, to get the right override of Subscribe on ViewModel.TlaIsValid
-
+// The System namespace is critical, to get the right override of Subscribe on ViewModel.TlaIsValid
 
 namespace RxUiSplunk
 {
@@ -16,6 +18,19 @@ namespace RxUiSplunk
         public ValidationView()
         {
             InitializeComponent();
+
+            var validationBinding = new Binding
+            {
+                // None of these seem required
+
+                //Source = Tla,
+                //Path = new PropertyPath(nameof(Tla.Tag)),
+                //NotifyOnValidationError = true,
+                //UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+            };
+            // adding a rule doesn't seem to be required for rendering, since we trigger manually
+            //validationBinding.ValidationRules.Add(new SplunkValidationRule("bind-barf"));
+            BindingOperations.SetBinding(Tla, TextBox.TagProperty, validationBinding);
 
             this
                 .WhenActivated(
@@ -32,7 +47,7 @@ namespace RxUiSplunk
                             .Subscribe(isValid => SetValidation(Tla, ViewModel.TlaIsValid))
                             .DisposeWith(disposables);
 
-                        // when textbox loses focus, evaluate validity. Doesn't seem to fire the converter on template though, not sure it's working?
+                        // when textbox loses focus, evaluate validity. Doesn't seem to fire the converter on template though, not sure it's not working?
                         Tla.Events().LostFocus
                             .Subscribe(e => SetValidation(Tla, ViewModel.TlaIsValid))
                             .DisposeWith(disposables);

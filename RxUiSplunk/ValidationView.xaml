@@ -12,7 +12,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Tla" Width="100" Height="40" Margin="0 0 10 0" Tag="{Binding}" Grid.Column="0">
+        <TextBox x:Name="Tla" Width="100" Height="40" Margin="0 0 10 0" Grid.Column="0">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
