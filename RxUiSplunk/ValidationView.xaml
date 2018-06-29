@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal">
-        <TextBox x:Name="Tla" Width="100" Margin="0 0 10 0" />
-        <Button x:Name="Save" Margin="0 0 10 0">Save</Button>
+        <TextBox x:Name="Tla" Width="100" Margin="0 0 10 0" Text="{Binding Tla}"/>
+            <Button x:Name="Save" Margin="0 0 10 0">Save</Button>
         <TextBlock x:Name="IsValidState">IsValidState</TextBlock>
     </StackPanel>
 </local:ValidationViewBase>
