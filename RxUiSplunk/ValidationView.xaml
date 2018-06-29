@@ -15,11 +15,15 @@
         <TextBox x:Name="Tla" Width="100" Height="40" Margin="0 0 10 0" Tag="{Binding}" Grid.Column="0">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
-                    <StackPanel>
-                        <!-- Placeholder for the TextBox itself -->
-                        <AdornedElementPlaceholder/>
-                        <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors).Count}" Foreground="Red"/>
-                    </StackPanel>
+                    <Grid>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Right" Padding="0,2,5,0" Foreground="Red" FontSize="14" FontWeight="Bold"
+                                   ToolTip="{Binding ElementName=adornerPlaceholder,
+                                Path=AdornedElement.(Validation.Errors),
+                                Converter={local:ValidationErrorsToStringConverter}}"
+                                   Text="{Binding ElementName=adornerPlaceholder, Path=AdornedElement.(Validation.Errors).Count}"
+                                   ></TextBlock>
+                        <AdornedElementPlaceholder Name="adornerPlaceholder" Grid.Column="0"/>
+                    </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>

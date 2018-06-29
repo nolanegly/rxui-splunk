@@ -99,6 +99,7 @@
     <Compile Include="InceptionOuterView.xaml.cs">
       <DependentUpon>InceptionOuterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidationErrorsToStringConverter.cs" />
     <Compile Include="ValidationView.xaml.cs">
       <DependentUpon>ValidationView.xaml</DependentUpon>
     </Compile>
