@@ -99,6 +99,10 @@
     <Compile Include="InceptionOuterView.xaml.cs">
       <DependentUpon>InceptionOuterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidationView.xaml.cs">
+      <DependentUpon>ValidationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationViewModel.cs" />
     <Compile Include="VariedPetsScreenView.xaml.cs">
       <DependentUpon>VariedPetsScreenView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +140,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="InceptionOuterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ValidationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

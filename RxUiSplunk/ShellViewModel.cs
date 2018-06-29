@@ -26,6 +26,7 @@ namespace RxUiSplunk
         public ReactiveCommand<Unit, Unit> NavigateToTabsOnOneScreenCommand { get; }
         public ReactiveCommand<Unit, Unit> NavigateToVariedPetsScreenCommand { get; }
         public ReactiveCommand<Unit, Unit> NavigateToViewsWithinViewsScreenCommand { get; }
+        public ReactiveCommand<Unit, Unit> NavigateToValidationCommand { get; }
 
         public ShellViewModel()
         {
@@ -33,6 +34,7 @@ namespace RxUiSplunk
             NavigateToTabsOnOneScreenCommand = ReactiveCommand.Create(NavigateToTabsOnOneScreen);
             NavigateToVariedPetsScreenCommand = ReactiveCommand.Create(NavigateToVariedPetsScreen);
             NavigateToViewsWithinViewsScreenCommand = ReactiveCommand.Create(NavigateToViewsWithinViewsScreen);
+            NavigateToValidationCommand = ReactiveCommand.Create(NavigateToValidation);
         }
 
         private void NavigateToHomeScreen()
@@ -56,6 +58,11 @@ namespace RxUiSplunk
         {
             //CurrentViewModel = Locator.Current.GetService<InceptionOuterViewModel>();
             CurrentViewModel = new InceptionOuterViewModel(new InceptionInnerViewModel());
+        }
+
+        private void NavigateToValidation()
+        {
+            CurrentViewModel = new ValidationViewModel();
         }
     }
 }

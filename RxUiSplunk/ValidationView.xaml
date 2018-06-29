@@ -1,0 +1,13 @@
+﻿<local:ValidationViewBase x:Class="RxUiSplunk.ValidationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RxUiSplunk"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Horizontal">
+        <TextBox x:Name="Tla" Width="100" Margin="0 0 10 0" />
+        <Button x:Name="Save">Save</Button>
+    </StackPanel>
+</local:ValidationViewBase>

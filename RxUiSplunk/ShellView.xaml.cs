@@ -46,6 +46,10 @@ namespace RxUiSplunk
             this
                 .BindCommand(ViewModel, vm => vm.NavigateToViewsWithinViewsScreenCommand, v => v.ViewsWithinViewsScreen)
                 .DisposeWith(disposables);
+
+            this
+                .BindCommand(ViewModel, vm => vm.NavigateToValidationCommand, v => v.Validation)
+                .DisposeWith(disposables);
         }
     }
 }
